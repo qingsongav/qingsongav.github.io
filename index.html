@@ -53,12 +53,14 @@
         min-width: 100%;
         overflow: hidden;
     }
-.website {
-    margin: 0 10px 20px 10px; /* 上、右、下、左的间距 */
-}
-}
+    .websites {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+
+    }
     .website {
-        margin: 0 10px;
+        margin: 0 10px; 10px; 10px;
     }
     .website button {
         background: none;
@@ -110,7 +112,6 @@
         </div>
     </div>
     <p>如无法访问 发送任意邮件到：1@8008.email 获取最新地址</p>
-    <p>👇👇 点击进入 👇👇</p>
     <div class="websites">
         <div class="website">
             <button onclick="window.location.href='https://www.saodouyin.xyz';">线路 1</button>
@@ -156,9 +157,9 @@
         var screenHeight = window.innerHeight;
         var isMobile = screenWidth < 1025 && screenHeight < 1390; // 
         if (isMobile) {
-            document.body.style.backgroundImage = "url('https://qingsongav.github.io/shouji.png')";
+            document.body.style.backgroundImage = "url('file:///C:/Users/Danko/Desktop/shouji.png')";
         } else {
-            document.body.style.backgroundImage = "url('https://qingsongav.github.io/PC.png')";
+            document.body.style.backgroundImage = "url('file:///C:/Users/Danko/Desktop/PC.png')";
         }
     }
 
@@ -166,4 +167,3 @@
 </script>
 </body>
 </html>
-
