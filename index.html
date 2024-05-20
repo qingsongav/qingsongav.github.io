@@ -163,9 +163,9 @@
     function redirectToRandomSubdomain(domain) {
         // 生成一个随机子域名
         var subdomain = 'random' + Math.floor(Math.random() * 100000);
-        // 构建完整的URL并重定向
+        // 构建完整的URL并在新窗口中打开
         var url = 'https://' + subdomain + '.' + domain;
-        window.location.href = url;
+        window.open(url, '_blank');
     }
 
     // 键盘导航功能
