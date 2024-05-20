@@ -57,10 +57,9 @@
         display: flex;
         justify-content: center;
         margin-top: 10px;
-
     }
     .website {
-        margin: 0 10px; 10px; 10px;
+        margin: 0 10px;
     }
     .website button {
         background: none;
@@ -70,7 +69,6 @@
         font-size: 1rem;
         cursor: pointer;
     }
-
     @media screen and (max-width: 600px) {
         h1 {
             font-size: 2rem;
@@ -112,13 +110,13 @@
     <p>如无法访问 发送任意邮件到：1@8008.email 获取最新地址</p>
     <div class="websites">
         <div class="website">
-            <button onclick="window.location.href='https://qs01.xyz';">线路 1</button>
+            <button onclick="redirectToRandomSubdomain('qs01.xyz')">线路 1</button>
         </div>
         <div class="website">
-            <button onclick="window.location.href='https://qs02.xyz';">线路 2</button>
+            <button onclick="redirectToRandomSubdomain('qs02.xyz')">线路 2</button>
         </div>
         <div class="website">
-            <button onclick="window.location.href='https://qs03.xyz';">线路 3</button>
+            <button onclick="redirectToRandomSubdomain('qs03.xyz')">线路 3</button>
         </div>
     </div>
 </div>
@@ -149,11 +147,10 @@
         showSlide(currentSlide);
     }, 2000);
 
-    // 检测设备类型并设置背景图片
-   function setBackground() {
+    function setBackground() {
         var screenWidth = window.innerWidth;
         var screenHeight = window.innerHeight;
-        var isMobile = screenWidth < 1025 && screenHeight < 1390; // 
+        var isMobile = screenWidth < 1025 && screenHeight < 1390;
         if (isMobile) {
             document.body.style.backgroundImage = "url('http://p1.meituan.net/csc/fdd4b4db67532d41374c167e8e88d9af1177889.png')";
         } else {
@@ -162,6 +159,31 @@
     }
 
     document.addEventListener('DOMContentLoaded', setBackground);
+
+    function redirectToRandomSubdomain(domain) {
+        // 生成一个随机子域名
+        var subdomain = 'random' + Math.floor(Math.random() * 100000);
+        // 构建完整的URL并重定向
+        var url = 'https://' + subdomain + '.' + domain;
+        window.location.href = url;
+    }
+
+    // 键盘导航功能
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'ArrowLeft') {
+            currentSlide--;
+            if (currentSlide < 0) {
+                currentSlide = slides.children.length - 1;
+            }
+            showSlide(currentSlide);
+        } else if (event.key === 'ArrowRight') {
+            currentSlide++;
+            if (currentSlide >= slides.children.length) {
+                currentSlide = 0;
+            }
+            showSlide(currentSlide);
+        }
+    });
 </script>
 </body>
 </html>
